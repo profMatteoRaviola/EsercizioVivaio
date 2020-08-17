@@ -15,17 +15,22 @@ namespace EsercizioVivaio.Classi_Modello
 
         [Required] public DateTime Data { get; set; }
 
-        [Required] public string Mod_pagamento { 
-            get {return Mod_pagamento; } 
+        private string mod_pagamento;
+        [Required]
+        public string Mod_pagamento
+        {
+            get { return mod_pagamento; }
             set
             {
-                Mod_pagamento = value switch //switch con sintassi funzionale... tutto autogenerato
+                mod_pagamento = value switch //switch con sintassi funzionale... tutto autogenerato
                 {
                     "Contrassegno" => value,
                     "PayPal" => value,
-                    _ => throw new PagamentoException(nameof(value))
+                    _ => throw new PagamentoException(value) //default
                 };
-            } }
+
+            }
+        }
 
         public Cliente Cliente { get; set; }
         public ICollection<Dettaglio_Ordine> Dettaglio_Ordini { get; set; }

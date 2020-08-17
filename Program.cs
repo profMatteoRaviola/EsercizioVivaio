@@ -59,17 +59,20 @@ namespace EsercizioVivaio
                 context.Ordini.AddRange(new[]
                 {
                     new Ordine { Data = new DateTime(2020, 8, 6), Mod_pagamento = "Contrassegno", ClienteId=1 }, //Id=3
-                    new Ordine { Data = new DateTime(2020, 10, 12), Mod_pagamento = "PayPall", ClienteId=2 }, //Id=2
+                    new Ordine { Data = new DateTime(2020, 10, 12), Mod_pagamento = "PayPal", ClienteId=2 }, //Id=2
                     new Ordine { Data = new DateTime(2019, 12, 9), Mod_pagamento = "Contrassegno", ClienteId=2 } //Id=1
                 });
                 context.SaveChanges();
                 //popolazione dei dettagli, posso partire sia da Piante che da Ordini
-                context.Ordini.Find(1).Dettaglio_Ordini.Add(new Dettaglio_Ordine { PiantaID = 1, Quantita = 2 });
-                context.Ordini.Find(1).Dettaglio_Ordini.Add(new Dettaglio_Ordine { PiantaID = 2, Quantita = 1 });
+                var dettaglio= new Dettaglio_Ordine { PiantaID = 1, Quantita = 2 };
+                context.Ordini.Find(1).Dettaglio_Ordini.Add(dettaglio);
+                /*context.Ordini.Find(1).Dettaglio_Ordini.Add(new Dettaglio_Ordine { PiantaID = 2, Quantita = 1 });
                 context.Ordini.Find(2).Dettaglio_Ordini.Add(new Dettaglio_Ordine { PiantaID = 1, Quantita = 10 });
                 context.Ordini.Find(3).Dettaglio_Ordini.Add(new Dettaglio_Ordine { PiantaID = 2, Quantita = 4 });
-                context.Ordini.Find(3).Dettaglio_Ordini.Add(new Dettaglio_Ordine { PiantaID = 3, Quantita = 2 });
+                context.Ordini.Find(3).Dettaglio_Ordini.Add(new Dettaglio_Ordine { PiantaID = 3, Quantita = 2 });*/
                 context.SaveChanges();
+
+                //context.Ordini.Add(new Ordine { Data = new DateTime(2015, 4, 4), Mod_pagamento = "A mano", ClienteId = 1 }); 
 
             }
             catch(PagamentoException e)

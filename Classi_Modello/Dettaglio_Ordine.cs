@@ -7,7 +7,7 @@ namespace EsercizioVivaio.Classi_Modello
 {
     class Dettaglio_Ordine
     {
-        [Key] public int Id { get; set; }
+        [Key][Required] public int Id { get; set; }
 
         [Required] public int Quantita { get; set; }
 
