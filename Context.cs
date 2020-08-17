@@ -15,7 +15,7 @@ namespace EsercizioVivaio
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.EnableSensitiveDataLogging()
-                .UseSqlite(@"Data Source = C:\Users\MATTEO\Desktop\UNIUPO\Magistrale\ApplicazioniWeb\EsercizioVivaio\DB\vivaio.db ");
+                .UseSqlite(@"Data Source = ...");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
