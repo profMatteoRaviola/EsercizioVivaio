@@ -7,6 +7,11 @@ namespace EsercizioVivaio.Classi_Modello
 {
     class Cliente
     {
+        public Cliente()
+        {
+            // Inizializzo una collection vuota.
+            Ordini = new List<Ordine>();
+        }
         [Key]
         [Required]
         public int Id { get; set; }
@@ -18,7 +23,7 @@ namespace EsercizioVivaio.Classi_Modello
         public string Cognome { get; set; }
 
         //navigatio property per associazione N:M
-        public ICollection<Ordine> Ordini { get; set; }
+        public ICollection<Ordine> Ordini { get; }
         
     }
 }

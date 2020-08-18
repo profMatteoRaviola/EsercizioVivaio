@@ -9,6 +9,12 @@ namespace EsercizioVivaio.Classi_Modello
 {
     class Ordine
     {
+        public Ordine()
+        {
+            // Inizializzo una collection vuota.
+            Dettaglio_Ordini = new List<Dettaglio_Ordine>();
+        }
+
         [Key][Required] public int Id { get; set; } //key primaria dell'ordine
         
         [Required] public int ClienteId { get; set; } //foreign key verso il cliente
@@ -33,7 +39,7 @@ namespace EsercizioVivaio.Classi_Modello
         }
 
         public Cliente Cliente { get; set; }
-        public ICollection<Dettaglio_Ordine> Dettaglio_Ordini { get; set; }
+        public ICollection<Dettaglio_Ordine> Dettaglio_Ordini { get; }
 
 
     }
